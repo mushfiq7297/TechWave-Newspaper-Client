@@ -21,8 +21,6 @@ import Subscription from "../pages/subscription/Subscription";
         {
           path: 'allArticle',
           element: <AllArticle></AllArticle>,
-          loader:() => fetch("/news.json")
-          
       }, 
       {
         path: '/articleDetails/:id',

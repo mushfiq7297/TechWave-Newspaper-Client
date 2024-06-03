@@ -1,9 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+
 import NewsCard from "./NewsCard";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
+import useNews from "../../hooks/useNews";
 
 const AllArticle = () => {
-  const news = useLoaderData();
+  const [news] =useNews()
   return (
     <section>
         <SectionTitle
