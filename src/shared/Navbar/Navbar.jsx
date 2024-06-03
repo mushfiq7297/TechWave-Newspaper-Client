@@ -25,17 +25,23 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li>
+      <li className="text-white hover:text-secondary">
         <Link to="/">HOME</Link>
       </li>
-      <li>
-      <Link to="allArticle">ALL ARTICLE</Link>
+      <li className="text-white  hover:text-secondary">
+        <Link to="allArticle">ALL ARTICLE</Link>
+      </li>
+      <li className="text-white  hover:text-secondary">
+        <Link to="addArticles">ADD ARTICLE</Link>
+      </li>
+      <li className="text-white  hover:text-secondary">
+        <Link to="subscription">SUBSCRIPTION</Link>
       </li>
     </>
   );
   return (
     <div>
-      <div className="navbar bg-black text-white px-10">
+      <div className="navbar bg-black text-white lg:px-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,16 +49,24 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm font-bold dropdown-content mt-3 z-50 p-2 shadow bg-black text-white rounded-none w-52 mb-10"
             >
               {navOptions}
             </ul>
           </div>
-          <img src="https://i.ibb.co/TtXrkj1/Tech-Wave-logo.png" className="w-16 h-16 " alt="" />
-          <a className="px-2 text-lg uppercase space-x-2">T e c h W a v e</a>
+          <img
+            src="https://i.ibb.co/TtXrkj1/Tech-Wave-logo.png"
+            className="w-10 h-10 md:h-16 md:w-16"
+            alt=""
+          />
+          <div className="hidden lg:block">
+            <h1 className="text-sm uppercase px-2 font-bold">
+              T e c h W a v e
+            </h1>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+          <ul className="menu menu-horizontal px-1 font-bold">{navOptions}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>

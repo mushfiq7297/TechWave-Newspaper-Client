@@ -28,7 +28,7 @@ const Banner = () => {
         {bannerData.map((item, index) => (
           <SwiperSlide key={index} className="relative">
             <img src={item.image} alt={item.title} className="h-screen w-full object-cover" />
-            <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white px-4 py-10 text-left text-4xl font-bold">
+            <div className="absolute text-2xl bottom-0 w-full bg-black bg-opacity-50 text-white px-4 py-10 text-left md:text-4xl font-bold">
               <p>{item.title} : {item.description}</p>
              
             </div>

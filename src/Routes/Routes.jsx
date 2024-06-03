@@ -5,6 +5,8 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import AllArticle from "../pages/allArticle/AllArticle";
 import ArticleDetails from "../pages/allArticle/ArticleDetails";
+import AddArticles from "../pages/addArticles/AddArticles";
+import Subscription from "../pages/subscription/Subscription";
 
   export const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ import ArticleDetails from "../pages/allArticle/ArticleDetails";
         path: '/articleDetails/:id',
         element: <ArticleDetails></ArticleDetails>,
         loader:() => fetch("/news.json")
+    }, 
+      {
+        path: '/addArticles',
+        element: <AddArticles></AddArticles>,
+    }, 
+      {
+        path: 'subscription',
+        element: <Subscription></Subscription>,
     }, 
     ]
 }
