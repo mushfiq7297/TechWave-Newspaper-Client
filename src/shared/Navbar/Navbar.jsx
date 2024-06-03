@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
-import logo from "/src/assets/logo.png";
 import { RiMenu5Fill } from "react-icons/ri";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("winter");
 
   // update state on toggle
   const handleToggle = (e) => {
     if (e.target.checked) {
-      setTheme("dark");
+      setTheme("night");
     } else {
-      setTheme("light");
+      setTheme("fantasy");
     }
   };
 
@@ -36,7 +35,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-black text-white px-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,8 +48,8 @@ const Navbar = () => {
               {navOptions}
             </ul>
           </div>
-          <img src={logo} className="w-10 h-10 " alt="" />
-          <a className="btn btn-ghost text-2xl font-">TechWave</a>
+          <img src="https://i.ibb.co/TtXrkj1/Tech-Wave-logo.png" className="w-16 h-16 " alt="" />
+          <a className="px-2 text-lg uppercase space-x-2">T e c h W a v e</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

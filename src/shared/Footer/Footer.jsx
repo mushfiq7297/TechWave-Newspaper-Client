@@ -1,13 +1,13 @@
 import logo from "/src/assets/logo.png";
 const Footer = () => {
   return (
-    <div className=" bottom-0 w-full">
+    <div className=" bottom-0 w-full mt-6">
       <div>
         <footer className="footer p-10 bg-base-200 text-base-content">
           <aside>
-            <img src={logo} className="h-10 w-10" alt="" />
+            <img src="https://i.ibb.co/jk47LpJ/black-logo.png" className="h-20 w-20" alt="" />
             <p>
-              ACME Industries Ltd.
+              TECHWAVE Industries Ltd.
               <br />
               Providing reliable tech since 1992
             </p>
@@ -37,7 +37,7 @@ const Footer = () => {
       <div>
         <footer className="footer footer-center p-4 bg-base-300 text-base-content">
           <aside>
-            <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+            <p>Copyright © 2024 - All right reserved by TECHWAVE Industries Ltd</p>
           </aside>
         </footer>
       </div>
