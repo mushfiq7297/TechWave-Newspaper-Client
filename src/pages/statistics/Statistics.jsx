@@ -1,8 +1,10 @@
 import { HiMiniUserGroup, HiMiniUsers } from "react-icons/hi2";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
 import { MdWorkspacePremium } from "react-icons/md";
+import useNews from "../../hooks/useNews";
 
 const Statistics = () => {
+    const [news] = useNews();
   return (
     <div>
       <SectionTitle heading="Statistics"></SectionTitle>

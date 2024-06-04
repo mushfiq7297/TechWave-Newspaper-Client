@@ -7,7 +7,8 @@
         "long_description": "Stay ahead with Breaking Tech News, your source for the latest and most important updates in the tech industry. From groundbreaking innovations to significant company announcements, our team of dedicated journalists brings you the stories that matter. Whether it's a new gadget release, an important merger, or a game-changing technological breakthrough, you'll find it here first. Our comprehensive coverage includes in-depth analysis, expert opinions, and detailed reporting to keep you informed and engaged. Breaking Tech News is committed to delivering accurate and timely information to tech enthusiasts, professionals, and casual readers alike. With a focus on credibility and reliability, we ensure that our readers are always in the know. Explore the world of technology with us and never miss a crucial update again.",
         "viewcount": 150000,
         "customer": "free",
-        "publisher": "Allan Doe"
+        "publisher": "Allan Doe",
+        "tag":  "tech"
     },
     {
         "id": 2 ,
@@ -17,7 +18,8 @@
         "long_description": "AI Innovations Daily provides comprehensive coverage of the latest trends, research, and advancements in the field of artificial intelligence. Our expert team curates news from reputable sources to bring you the most relevant and groundbreaking stories in AI. From new algorithms and applications to ethical considerations and policy developments, we delve into all aspects of artificial intelligence. Our in-depth articles and interviews with industry leaders offer valuable insights and perspectives on how AI is shaping various sectors, including healthcare, finance, automotive, and more. Whether you are a professional working in the field, an academic researcher, or simply an AI enthusiast, AI Innovations Daily is your go-to resource for staying informed and ahead of the curve. Join our community to explore the future of AI and its impact on our world.",
         "viewcount": 85000,
         "customer": "premium with duo",
-        "publisher": "Rimen John"
+        "publisher": "Rimen John",
+        "tag": "ai"
     },
     {
         "id": 3 ,
@@ -27,7 +29,9 @@
         "long_description": "Cybersecurity Watch is dedicated to providing up-to-date news and analysis on the ever-evolving landscape of cybersecurity. In a world where cyber threats are becoming increasingly sophisticated, staying informed is crucial. Our team of cybersecurity experts and journalists brings you the latest updates on breaches, vulnerabilities, malware, and cyber defense strategies. We cover a wide range of topics, including data privacy, network security, encryption, and government regulations. Our detailed reports and expert commentary help you understand the implications of cybersecurity incidents and how to protect yourself and your organization. Cybersecurity Watch is an essential resource for IT professionals, security analysts, and anyone concerned with safeguarding digital assets. Stay vigilant and informed with our daily updates and in-depth articles.",
         "viewcount": 120000,
         "customer": "free",
-        "publisher": "Drino Lian"
+        "publisher": "Drino Lian",
+        "tag": "security"
+
     },
     {
         "id": 4 ,
@@ -37,7 +41,8 @@
         "long_description": "Gadget Guru is your ultimate guide to the world of consumer electronics. From smartphones and tablets to smart home devices and wearables, we bring you the latest reviews, news, and hands-on experiences with the hottest gadgets on the market. Our team of tech enthusiasts rigorously tests and evaluates products to provide honest and detailed reviews, helping you make informed purchasing decisions. In addition to reviews, we cover major product launches, industry trends, and tech tips to enhance your gadget experience. Whether you are a tech novice or a seasoned enthusiast, Gadget Guru offers valuable insights and recommendations to keep you up-to-date with the fast-paced world of technology. Join us as we explore the innovations that are transforming the way we live, work, and play.",
         "viewcount": 95000,
         "customer": "premium with family",
-        "publisher": "Rivan Reza"
+        "publisher": "Rivan Reza",
+        "tag": "gadget"
     },
     {
         "id": 5 ,
@@ -47,7 +52,8 @@
         "long_description": "Startup Spotlight shines a light on the most innovative and promising startups in the tech industry. Our mission is to discover and showcase emerging companies that are pushing the boundaries of technology and innovation. We provide in-depth profiles, interviews with founders, and analysis of the startup ecosystem to give you a comprehensive view of the next big things in tech. From early-stage ventures to rapidly growing companies, we cover a diverse range of industries including fintech, healthtech, edtech, and more. Startup Spotlight is a valuable resource for investors, entrepreneurs, and tech enthusiasts looking to stay ahead of the curve and discover new opportunities. Join us as we explore the exciting world of startups and the groundbreaking technologies they are developing.",
         "viewcount": 60000,
         "customer": "free",
-        "publisher": "Nirja Sen"
+        "publisher": "Nirja Sen",
+        "tag": "businesses"
     },
     {
         "id": 6 ,
@@ -57,6 +63,7 @@
         "long_description": "Tech Policy Daily offers comprehensive coverage of the latest developments in technology policy and regulation. As technology continues to evolve and disrupt various sectors, the role of policy and regulation becomes increasingly important. Our team of policy analysts and tech journalists brings you the most relevant and timely news on government regulations, legislative actions, and industry standards affecting the tech world. We cover a wide range of topics, including data privacy, net neutrality, antitrust issues, and international trade policies. Our in-depth articles and expert commentary help you understand the implications of policy changes and how they impact businesses, consumers, and the broader tech ecosystem. Whether you are a policymaker, industry professional, or concerned citizen, Tech Policy Daily is your trusted source for staying informed on the intersection of technology and policy.",
         "viewcount": 70000,
         "customer": "premium with duo",
-        "publisher": "Arbin Ron"
+        "publisher": "Arbin Ron",
+        "tag": "policy"
     }
 ]

@@ -3,6 +3,7 @@ import AllArticle from "../allArticle/AllArticle";
 import Banner from "../banner/Banner";
 import Publishers from "../publishers/Publishers";
 import Statistics from "../statistics/Statistics";
+import Plans from "../plans/Plans";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <AllArticle></AllArticle>
             <Publishers></Publishers>
             <Statistics></Statistics>
+            <Plans></Plans>
         </div>
     );
 };

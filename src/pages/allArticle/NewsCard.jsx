@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
-  const { image, title, publisher, description, customer,id,viewcount } = news;
+  const { image, title, publisher, description, customer,id,tag } = news;
 
   let cardStyle;
   let bannerStyle;
@@ -11,14 +11,14 @@ const NewsCard = ({ news }) => {
 
   switch (customer) {
     case 'premium with duo':
-      cardStyle = 'border border-green-500';
-      bannerStyle = 'bg-green-500 text-white';
+      cardStyle = 'border border-primary';
+      bannerStyle = 'bg-primary text-white';
       bannerText = 'Premium Duo';
       buttonStyle = 'btn-disabled'
       break;
     case 'premium with family':
-      cardStyle = 'border border-purple-500';
-      bannerStyle = 'bg-purple-500 text-white';
+      cardStyle = 'border border-success';
+      bannerStyle = 'bg-success text-white';
       bannerText = 'Premium Family';
       buttonStyle = 'btn-disabled'
       break;
@@ -37,9 +37,10 @@ const NewsCard = ({ news }) => {
           </div>
         </figure>
         <div className="card-body">
-          <h2 className="text-lg text-secondary uppercase -mt-2 border-b-2">
-            <span className="text-gray-500">BY </span>
-            {publisher}
+          <h2 className="text-lg  -mt-2 border-b-2">
+          <span className="text-secondary font-bold uppercase">{tag} </span>
+            <span className="text-gray-500">/ {publisher} </span>
+            
           </h2>
           <h2 className="card-title text-2xl">
             {title} : {description}
