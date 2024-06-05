@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import registerImg from "/src/assets/images/register.jpg"
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import Swal from 'sweetalert2'
 const Register = () => {
-    const { register, handleSubmit,  formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { createUser,updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
     const onSubmit = data => {
 
 
@@ -17,6 +18,20 @@ const Register = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 console.log(data)
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        reset()
+                        // create user entry in the database
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/');
+                        })
+
             
         })
     }
@@ -97,7 +112,8 @@ const Register = () => {
                     {...errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {...errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                 {...errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
-                                {...errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
+                                {...errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>
+                            }
                     className="input input-bordered bg-gray-100  text-black w-full"
                     required
                   />

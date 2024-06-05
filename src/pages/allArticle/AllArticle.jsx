@@ -1,10 +1,16 @@
 
 import NewsCard from "./NewsCard";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
+
+import { useNavigation } from "react-router-dom";
+import Loader from "../../components/sectionTitle/Loader";
 import useNews from "../../hooks/useNews";
 
 const AllArticle = () => {
   const [news] =useNews()
+  const navigation = useNavigation()
+  if (navigation.state === 'loading') return <Loader />
+  
   return (
     <section>
         <SectionTitle

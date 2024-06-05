@@ -2,13 +2,19 @@ import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import loginImg from "/src/assets/images/login.jpg"
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 export const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+    console.log('state in the location login page', location.state)
+
     const handleLogin = (e) => {
         e.preventDefault();
     
@@ -20,6 +26,16 @@ export const Login = () => {
         .then((result) => {
           const user = result.user;
           console.log(user);
+          Swal.fire({
+            title: 'User Login Successful.',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+        navigate(from, { replace: true });
   
     })
 }

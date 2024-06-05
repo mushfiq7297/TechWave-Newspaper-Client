@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { RiMenu5Fill } from "react-icons/ri";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+
   const [theme, setTheme] = useState("winter");
 
   // update state on toggle
@@ -23,6 +25,14 @@ const Navbar = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+        .then(() => { })
+        .catch(error => console.log(error));
+}
+
   const navOptions = (
     <>
       <li className="text-white hover:text-secondary">
@@ -38,8 +48,9 @@ const Navbar = () => {
         <Link to="subscription">SUBSCRIPTION</Link>
       </li>
       <li className="text-white  hover:text-secondary">
-        <Link to="login">LOGIN</Link>
+        <Link to="secret">SECRET</Link>
       </li>
+      
     </>
   );
   return (
@@ -71,8 +82,16 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-bold">{navOptions}</ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        
+        <div className="navbar-end mx-2">
+        {
+            user ? <>
+                {<span>{user?.displayName}</span>}
+                <button onClick={handleLogOut} className="btn btn-ssecondary uppercase mx-2">LogOut</button>
+            </> : <>
+                <button className="btn btn-secondary uppercase"><Link to="/login">Login</Link></button>
+            </>
+        }
         </div>
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}

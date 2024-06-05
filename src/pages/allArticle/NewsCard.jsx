@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import Loader from "../../components/sectionTitle/Loader";
 
 const NewsCard = ({ news }) => {
+  const navigation = useNavigation()
+  if (navigation.state === 'loading') return <Loader />
   const { image, title, publisher, description, customer,id,tag } = news;
-
+  
   let cardStyle;
   let bannerStyle;
   let bannerText;
