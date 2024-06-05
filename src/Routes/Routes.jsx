@@ -5,6 +5,8 @@ import AllArticle from "../pages/allArticle/AllArticle";
 import ArticleDetails from "../pages/allArticle/ArticleDetails";
 import AddArticles from "../pages/addArticles/AddArticles";
 import Subscription from "../pages/subscription/Subscription";
+import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +16,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/news.json"),
+        
       },
       {
         path: "allArticle",
@@ -23,7 +25,6 @@ export const router = createBrowserRouter([
       {
         path: "/articleDetails/:id",
         element: <ArticleDetails></ArticleDetails>,
-        loader: () => fetch("/news.json"),
       },
       {
         path: "/addArticles",
@@ -32,6 +33,14 @@ export const router = createBrowserRouter([
       {
         path: "subscription",
         element: <Subscription></Subscription>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
       },
       
     ],

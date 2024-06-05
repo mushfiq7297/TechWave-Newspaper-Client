@@ -1,6 +1,6 @@
 [
     {
-        "id": 1 ,
+        
         "title": "Breaking Tech News",
         "image": "https://i.ibb.co/jGkgDbG/tech-news.jpg",
         "description": "Latest updates and breaking news in the tech world.",
@@ -11,7 +11,7 @@
         "tag":  "tech"
     },
     {
-        "id": 2 ,
+        
         "title": "AI Innovations Daily",
         "image": "https://i.ibb.co/5hcHhhG/ai-innovation.jpg",
         "description": "Daily insights and developments in artificial intelligence.",
@@ -22,7 +22,7 @@
         "tag": "ai"
     },
     {
-        "id": 3 ,
+       
         "title": "Cybersecurity Watch",
         "image": "https://i.ibb.co/gF5tKCY/cyber-security-watch.jpg",
         "description": "Your source for the latest in cybersecurity news and threats.",
@@ -34,7 +34,7 @@
 
     },
     {
-        "id": 4 ,
+       
         "title": "Gadget Guru",
         "image": "https://i.ibb.co/s5B4bTZ/gadget-guru.jpg",
         "description": "Reviews and news on the latest gadgets and consumer electronics.",
@@ -45,7 +45,7 @@
         "tag": "gadget"
     },
     {
-        "id": 5 ,
+       
         "title": "Startup Spotlight",
         "image": "https://i.ibb.co/jJZ0gmZ/startup.jpg",
         "description": "Highlighting the most promising tech startups and innovations.",
@@ -56,7 +56,7 @@
         "tag": "businesses"
     },
     {
-        "id": 6 ,
+        
         "title": "Tech Policy Daily",
         "image": "https://i.ibb.co/vxsPNdT/tech-policy.jpg",
         "description": "Daily coverage of technology policy and regulation news.",

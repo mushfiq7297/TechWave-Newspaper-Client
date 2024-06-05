@@ -37,6 +37,9 @@ const Navbar = () => {
       <li className="text-white  hover:text-secondary">
         <Link to="subscription">SUBSCRIPTION</Link>
       </li>
+      <li className="text-white  hover:text-secondary">
+        <Link to="login">LOGIN</Link>
+      </li>
     </>
   );
   return (

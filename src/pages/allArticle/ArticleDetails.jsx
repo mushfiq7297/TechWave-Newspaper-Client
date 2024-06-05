@@ -4,7 +4,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 const ArticleDetails = () => {
   const news = useLoaderData();
   const { id } = useParams();
-  const aNews = news.find((aNews) => aNews.id == id);
+  const aNews = news.find((aNews) => aNews._id === id);
 
   const { image, title, publisher, description, viewcount, long_description } =
     aNews;

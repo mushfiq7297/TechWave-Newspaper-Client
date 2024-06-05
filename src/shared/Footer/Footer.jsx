@@ -1,4 +1,4 @@
-import logo from "/src/assets/logo.png";
+
 const Footer = () => {
   return (
     <div className=" bottom-0 w-full mt-6">
