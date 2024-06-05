@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import registerImg from "/src/assets/images/register.jpg"
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+    const { register, handleSubmit,  formState: { errors } } = useForm();
+    const { createUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
-    const handleRegister = (e) => {
-        e.preventDefault();
-    
-        const form = new FormData(e.currentTarget);
-        const name = form.get("name");
-        const photo = form.get("photo");
-        const email = form.get("email");
-        const password = form.get("password");
-        console.log(email, password, name, photo);
+    const onSubmit = data => {
+
+
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                console.log(data)
+            
+        })
     }
     return (
         <div>
@@ -26,7 +31,7 @@ const Register = () => {
             <h2 className="text-2xl font-bold text-center text-black py-4">
               Register your Account
             </h2>
-            <form className="card-body" onSubmit={handleRegister}>
+            <form  onSubmit={handleSubmit(onSubmit)} className="card-body" >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
@@ -35,6 +40,7 @@ const Register = () => {
                 </label>
                 <input
                   type="text"
+                  {...register("name", { required: true })}
                   name="name"
                   placeholder="Enter your name"
                   className="input input-bordered bg-gray-100  text-black"
@@ -49,7 +55,8 @@ const Register = () => {
                 </label>
                 <input
                   type="text"
-                  name="photo"
+                  {...register("photoURL", { required: true })}
+                  name="photoURL"
                   placeholder="Enter your photo"
                   className="input input-bordered bg-gray-100  text-black"
                   required
@@ -63,6 +70,7 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
+                  {...register("email", { required: true })}
                   name="email"
                   placeholder="Enter your email"
                   className="input input-bordered bg-gray-100  text-black"
@@ -78,8 +86,18 @@ const Register = () => {
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
+                    {...register("password", {
+                        required: true,
+                        minLength: 6,
+                        maxLength: 20,
+                        pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                    })}
                     name="password"
                     placeholder="password"
+                    {...errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                {...errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                {...errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
+                                {...errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
                     className="input input-bordered bg-gray-100  text-black w-full"
                     required
                   />
@@ -102,7 +120,7 @@ const Register = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn btn-info  text-white">Register</button>
+                 <input className="btn btn-primary" type="submit" value="Sign Up" />
               </div>
               <p className="text-black text-sm">
                 Already have an account?
