@@ -13,9 +13,7 @@ const AllArticle = () => {
   
   return (
     <section>
-        <SectionTitle
-                heading="All Articles"
-            ></SectionTitle>
+      <div className="divider divider-secondary text-3xl mt-24 mb-16 uppercase">all article</div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {news.map((aNews) => (
         <NewsCard key={aNews._id} news={aNews}></NewsCard>

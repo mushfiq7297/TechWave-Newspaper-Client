@@ -26,7 +26,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/articleDetails/:id",
-        element: <ArticleDetails></ArticleDetails>,
+        element: <PrivateRoute><ArticleDetails></ArticleDetails></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/allArticle')
       },
       {
         path: "/addArticles",

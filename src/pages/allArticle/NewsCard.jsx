@@ -5,7 +5,7 @@ import Loader from "../../components/sectionTitle/Loader";
 const NewsCard = ({ news }) => {
   const navigation = useNavigation()
   if (navigation.state === 'loading') return <Loader />
-  const { image, title, publisher, description, customer,id,tag } = news;
+  const { image, title, publisher, description, customer,_id,tag } = news;
   
   let cardStyle;
   let bannerStyle;
@@ -49,7 +49,7 @@ const NewsCard = ({ news }) => {
             {title} : {description}
           </h2>
           <div className="card-actions justify-start">
-          <Link to={`/articleDetails/${id}`}>
+          <Link to={`/articleDetails/${_id}`}>
             <button className={`btn btn-secondary rounded-none ${buttonStyle}`}>Details</button>
             </Link>
           </div>

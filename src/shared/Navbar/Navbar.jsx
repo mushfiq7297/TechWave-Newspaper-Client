@@ -10,7 +10,7 @@ const Navbar = () => {
   // update state on toggle
   const handleToggle = (e) => {
     if (e.target.checked) {
-      setTheme("night");
+      setTheme("fantasy");
     } else {
       setTheme("fantasy");
     }
@@ -86,7 +86,13 @@ const Navbar = () => {
         <div className="navbar-end mx-2">
         {
             user ? <>
-                {<span>{user?.displayName}</span>}
+                <div className="tooltip tooltip-left  flex gap-2" data-tip={user?.displayName || user.email}>
+                <img
+                  src={user?.photoURL || "/src/assets/userDefaultPic.png"}
+                  alt=""
+                  className=" rounded w-10 h-10 mt-1 mx-2 "
+                />
+                </div>
                 <button onClick={handleLogOut} className="btn btn-ssecondary uppercase mx-2">LogOut</button>
             </> : <>
                 <button className="btn btn-secondary uppercase"><Link to="/login">Login</Link></button>
