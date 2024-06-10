@@ -9,6 +9,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Secret from "../shared/secret/Secret";
 import PrivateRoute from "./PrivateRoute";
+import UpdateArticle from "../updateArticle/UpdateArticle";
 
 export const router = createBrowserRouter([
   {
@@ -46,7 +47,12 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "secret",
+        path: "/updateArticle/:id",
+        element: <UpdateArticle></UpdateArticle>,
+        loader:({params}) => fetch(`http://localhost:5000/allArticle/${params.id}`)
+      },
+      {
+        path: "/myArticles",
         element:<PrivateRoute><Secret></Secret></PrivateRoute>,
       },
       
