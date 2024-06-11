@@ -1,71 +1,70 @@
 import "animate.css";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
 
-import swal from "sweetalert2"
+import swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const AddArticles = () => {
-    const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
-    const handleAddArticle = (event) => {
-        event.preventDefault();
-    
-        const form = event.target;
-    
-        const title = form.title.value;
-        const publisher = form.publisher.value;
-       
-        const description = form.description.value;
-        const image = form.photourl.value;
-        const email = form.email.value;
-        const tag = form.tag.value;
-        
-    
-        const addArticles = {
-          title,
-          publisher,
-          description,
-          image,
-          tag,
-          email
-        };
-        console.log(addArticles);
-    
-        // //sending data to the server
-        fetch("http://localhost:5000/addArticles", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(addArticles),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.insertedId) {
-              swal.fire({
-                title: "Success!",
-                text: "Tourists spot added successfully",
-                icon: "success",
-                confirmButtonText: "Cool",
-              });
-             
-            }
+  const handleAddArticle = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const title = form.title.value;
+    const publisher = form.publisher.value;
+
+    const description = form.description.value;
+    const image = form.photourl.value;
+    const email = form.email.value;
+    const tag = form.tag.value;
+
+    const addArticles = {
+      title,
+      publisher,
+      description,
+      image,
+      tag,
+      email,
+    };
+    console.log(addArticles);
+
+    // //sending data to the server
+    fetch("http://localhost:5000/addArticles", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addArticles),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          swal.fire({
+            title: "Success!",
+            text: "Article added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
           });
-      };
+        }
+      });
+  };
 
   return (
     <div>
-      <div className="w-4/5 mx-auto py-10 px-4 font-stack">
+      <div className="w-full md:w-4/5 mx-auto py-10 px-4 font-stack">
         <form
           onSubmit={handleAddArticle}
           action=""
           className="container flex flex-col mx-auto space-y-12 "
         >
           <div className="space-y-2  text-center ">
-          <div className="divider divider-secondary text-3xl my-4 uppercase">add article</div> 
-            
+            <div className="divider divider-secondary text-3xl my-4 uppercase">
+              add article
+            </div>
           </div>
           <fieldset className="grname gap-6 p-6 rounded-lg shadow-xl  border-2 border-indigo-900 bg-gray-100 animate__animated animate__slnameeInDown">
             <div className="grname  gap-4 col-span-full lg:col-span-3">
@@ -93,7 +92,7 @@ const AddArticles = () => {
                       className="w-full   text-black rounded-md  p-2 focus:ring p-2-opacity-75 focus:dark:ring-violet-600 dark:border-gray-300"
                     />
                   </div>
-                  
+
                   <div className="col-span-full">
                     <label htmlFor="address" className="text-lg font-bold">
                       Photo URL
@@ -107,7 +106,7 @@ const AddArticles = () => {
                   </div>
                   <div className="col-span-full ">
                     <label htmlFor="city" className="text-lg font-bold">
-                     Tag
+                      Tag
                     </label>
                     <input
                       name="tag"
@@ -128,24 +127,26 @@ const AddArticles = () => {
                     />
                   </div>
                   <div className="col-span-full sm:col-span-2">
-                  <label htmlFor="city" className="text-lg font-bold">
-                    Email
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    defaultValue={user?.email}
-                    placeholder="Email"
-                    className="w-full  text-gray-400 rounded-md  p-2 focus:ring p-2-opacity-75 focus:dark:ring-violet-600 dark:border-gray-300"
-                  />
+                    <label htmlFor="city" className="text-lg font-bold">
+                      Email
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      defaultValue={user?.email}
+                      placeholder="Email"
+                      className="w-full  text-gray-400 rounded-md  p-2 focus:ring p-2-opacity-75 focus:dark:ring-violet-600 dark:border-gray-300"
+                    />
+                  </div>
                 </div>
-                </div>
-                
-                
               </div>
             </div>
           </fieldset>
-          <input type="submit" value="Add" className="btn btn-secondary"></input>
+          <input
+            type="submit"
+            value="Add"
+            className="btn btn-secondary"
+          ></input>
         </form>
       </div>
     </div>

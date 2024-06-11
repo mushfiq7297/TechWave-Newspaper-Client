@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
 
 const Plans = () => {
@@ -19,9 +20,12 @@ const Plans = () => {
               <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                 <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 border border-secondary">
                   <div className="space-y-2">
-                    <h4 className="text-2xl font-bold text-secondary my-4">Premium Individuals</h4>
-                    <span className="text-6xl font-bold">Free
-                    <span className="text-sm tracking-wide"> for month</span>
+                    <h4 className="text-2xl font-bold text-secondary my-4">
+                      Premium Individuals
+                    </h4>
+                    <span className="text-6xl font-bold">
+                      Free
+                      <span className="text-sm tracking-wide"> for month</span>
                     </span>
                   </div>
                   <ul className="flex-1 mb-6 ">
@@ -68,22 +72,27 @@ const Plans = () => {
                           clipRule="evenodd"
                         ></path>
                       </svg>
-                      <span>15 hours per month of listening time for our audiobooks from catalogoue</span>
+                      <span>
+                        15 hours per month of listening time for our audiobooks
+                        from catalogoue
+                      </span>
                     </li>
                   </ul>
-                  <button className="btn btn-secondary">Get Started</button>
+                 <Link to="/subscription" > <button className="btn w-full btn-secondary">Get Started</button></Link>
                 </div>
               </div>
               <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0 ">
                 <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 border border-primary">
                   <div className="space-y-2">
-                    <h4 className="text-2xl font-bold text-primary my-4">Premium with duo</h4>
+                    <h4 className="text-2xl font-bold text-primary my-4">
+                      Premium with duo
+                    </h4>
                     <span className="text-6xl font-bold">
                       $24
                       <span className="text-sm tracking-wide">/month</span>
                     </span>
                   </div>
-                  
+
                   <ul className="flex-1 space-y-2">
                     <li className="flex items-center space-x-2">
                       <svg
@@ -128,17 +137,21 @@ const Plans = () => {
                           clipRule="evenodd"
                         ></path>
                       </svg>
-                      <span>15 hours per month of listening time for our audiobooks from catalogoue</span>
+                      <span>
+                        15 hours per month of listening time for our audiobooks
+                        from catalogoue
+                      </span>
                     </li>
-                   
                   </ul>
-                  <button className="btn btn-primary">Get Started</button>
+                  <Link to="/subscription" ><button className="btn w-full btn-primary">Get Started</button></Link>
                 </div>
               </div>
               <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                 <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 border border-success">
                   <div className="space-y-2">
-                    <h4 className="text-2xl font-bold text-success my-4">Premium with family</h4>
+                    <h4 className="text-2xl font-bold text-success my-4">
+                      Premium with family
+                    </h4>
                     <span className="text-6xl font-bold">
                       $72
                       <span className="text-sm tracking-wide">/month</span>
@@ -218,10 +231,13 @@ const Plans = () => {
                           clipRule="evenodd"
                         ></path>
                       </svg>
-                      <span>15 hours per month of listening time for our audiobooks from catalogoue</span>
+                      <span>
+                        15 hours per month of listening time for our audiobooks
+                        from catalogoue
+                      </span>
                     </li>
                   </ul>
-                  <button className="btn btn-success">Get Started</button>
+                  <Link to="/subscription" ><button className="btn btn-success w-full">Get Started</button></Link>
                 </div>
               </div>
             </div>

@@ -82,20 +82,15 @@ const Navbar = () => {
               <div className="flex gap-2">
                 <div className="dropdown dropdown-bottom dropdown-end">
                   <div tabIndex={0} role="button" className="m-1">
+                    
                     <img
                       src={user?.photoURL || "/src/assets/userDefaultPic.png"}
                       alt=""
                       className=" rounded w-10 h-10 mt-1 mx-2 "
                     />
+                    
                   </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52"
-                  >
-                    <li>
-                      <a>MY PROFILE</a>
-                    </li>
-                  </ul>
+                  
                 </div>
               </div>
               <button

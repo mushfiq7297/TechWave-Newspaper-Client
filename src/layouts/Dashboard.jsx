@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import { FaPaypal } from "react-icons/fa6";
 
 const Dashboard = () => {
   const isAdmin = useAdmin();
@@ -42,6 +43,12 @@ const Dashboard = () => {
                   All Users
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/dashboard/allArticle">
+                  <FaSearch></FaSearch>
+                  All Articles
+                </NavLink>
+              </li>
             </>
           ) : (
             <>
@@ -54,11 +61,12 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/allArticle">
-                  <FaSearch></FaSearch>
-                  All Articles
+                <NavLink to="/dashboard/payment">
+                  <FaPaypal></FaPaypal>
+                  Payment
                 </NavLink>
               </li>
+             
             </>
           )}
         </ul>

@@ -14,11 +14,17 @@ import Dashboard from "../layouts/Dashboard";
 import AllUser from "../pages/Dashboard/AllUser";
 import AddPublisher from "../pages/Dashboard/AddPublisher";
 import AdminRoute from "./AdminRoute";
+import ErrorPage from "../errorpage/ErrorPage";
+import Payment from "../pages/Dashboard/payment/Payment";
+
+
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -39,15 +45,15 @@ export const router = createBrowserRouter([
         element: <AddArticles></AddArticles>,
       },
       {
-        path: "subscription",
+        path: "/subscription",
         element: <Subscription></Subscription>,
       },
       {
-        path: "login",
+        path: "/login",
         element: <Login></Login>,
       },
       {
-        path: "register",
+        path: "/register",
         element: <Register></Register>,
       },
       {
@@ -60,12 +66,19 @@ export const router = createBrowserRouter([
         element:<PrivateRoute><Secret></Secret></PrivateRoute>,
       },
       
+      
     ],
   },
   {
-    path: 'dashboard',
+    path: '/dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    errorElement: <ErrorPage />,
     children: [
+      //normal user
+      {
+        path: "payment",
+        element:<Payment></Payment>
+      },
       // admin user routes
       {
         path:'allUser',
