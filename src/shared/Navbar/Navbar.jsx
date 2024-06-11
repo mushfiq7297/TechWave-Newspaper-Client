@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import { RiMenu5Fill } from "react-icons/ri";
-import { useContext, } from "react";
+import { RiDashboardHorizontalLine, RiMenu5Fill } from "react-icons/ri";
+import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-  
-
   // update state on toggle
-  
+
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -22,7 +20,7 @@ const Navbar = () => {
         <Link to="/">HOME</Link>
       </li>
       <li className="text-white  hover:text-secondary">
-        <Link to="allArticle">ALL ARTICLE</Link>
+        <Link to="allArticle">ALL ARTICLES</Link>
       </li>
       <li className="text-white  hover:text-secondary">
         <Link to="addArticles">ADD ARTICLE</Link>
@@ -30,18 +28,15 @@ const Navbar = () => {
       <li className="text-white  hover:text-secondary">
         <Link to="subscription">SUBSCRIPTION</Link>
       </li>
-      {
-        user?.email? <>
-
-        <li className="text-white  hover:text-secondary">
-        <Link to="/myArticles">MY ARTICLE</Link>
-      </li>
-      </>
-      :
-      <div></div>
-       
-      }
-      
+      {user?.email ? (
+        <>
+          <li className="text-white  hover:text-secondary">
+            <Link to="/myArticles">MY ARTICLE</Link>
+          </li>
+        </>
+      ) : (
+        <div></div>
+      )}
     </>
   );
   return (
@@ -77,18 +72,21 @@ const Navbar = () => {
         <div className="navbar-end mx-2">
           {user ? (
             <>
-              <div
-                className="flex gap-2"
-  
-              >
-                
+             
+                <div className="tooltip tooltip-left" data-tip="Dashboard">
+                <Link to="/dashboard/allUser">
+                  <RiDashboardHorizontalLine className="w-10 h-10" />
+                  </Link>
+                </div>
+              
+              <div className="flex gap-2">
                 <div className="dropdown dropdown-bottom dropdown-end">
                   <div tabIndex={0} role="button" className="m-1">
-                  <img
-                  src={user?.photoURL || "/src/assets/userDefaultPic.png"}
-                  alt=""
-                  className=" rounded w-10 h-10 mt-1 mx-2 "
-                />
+                    <img
+                      src={user?.photoURL || "/src/assets/userDefaultPic.png"}
+                      alt=""
+                      className=" rounded w-10 h-10 mt-1 mx-2 "
+                    />
                   </div>
                   <ul
                     tabIndex={0}
@@ -115,7 +113,6 @@ const Navbar = () => {
             </>
           )}
         </div>
-        
       </div>
     </div>
   );

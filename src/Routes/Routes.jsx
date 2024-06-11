@@ -10,6 +10,9 @@ import Register from "../pages/register/Register";
 import Secret from "../shared/secret/Secret";
 import PrivateRoute from "./PrivateRoute";
 import UpdateArticle from "../updateArticle/UpdateArticle";
+import Dashboard from "../layouts/Dashboard";
+import AllUser from "../pages/Dashboard/AllUser";
+import AddPublisher from "../pages/Dashboard/AddPublisher";
 
 export const router = createBrowserRouter([
   {
@@ -58,4 +61,24 @@ export const router = createBrowserRouter([
       
     ],
   },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      // normal user routes
+      {
+        path:'allUser',
+        element:<AllUser></AllUser>
+      },
+      {
+        path:'allArticle',
+        element:<AllArticle></AllArticle>
+      },
+      {
+        path:'addPublisher',
+        element:<AddPublisher></AddPublisher>
+      }
+      
+    ]
+  }
 ]);
