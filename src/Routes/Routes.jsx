@@ -13,6 +13,7 @@ import UpdateArticle from "../updateArticle/UpdateArticle";
 import Dashboard from "../layouts/Dashboard";
 import AllUser from "../pages/Dashboard/AllUser";
 import AddPublisher from "../pages/Dashboard/AddPublisher";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -65,10 +66,10 @@ export const router = createBrowserRouter([
     path: 'dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
-      // normal user routes
+      // admin user routes
       {
         path:'allUser',
-        element:<AllUser></AllUser>
+        element:<AdminRoute><AllUser></AllUser></AdminRoute>
       },
       {
         path:'allArticle',
@@ -76,7 +77,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'addPublisher',
-        element:<AddPublisher></AddPublisher>
+        element:<AdminRoute><AddPublisher></AddPublisher></AdminRoute>
       }
       
     ]
