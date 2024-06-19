@@ -1,19 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from "react";
 
 const useNews = () => {
-    const [news,setNews] = useState([])
-    const [loading, setLoading] = useState(true);
-     useEffect(() => {
-       fetch('http://localhost:5000/allArticle')
-            .then(res => res.json())
-            .then(data => {
-                setNews(data);
-                setLoading(false);
-        });
-    }, [])
+  const [news, setNews] = useState([]);
+  const [error, setError] = useState(null);
 
-    return [news, loading]
-        
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/allArticle");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setNews(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  return [news, error];
 };
 
 export default useNews;
