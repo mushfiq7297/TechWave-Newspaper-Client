@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import PieChart from "../pieChart/PieChart";
+import LineChart from "../../lineChart/LineChart";
 
 
 const AdminHome = () => {
@@ -7,7 +9,14 @@ const AdminHome = () => {
              <Helmet>
                 <title>TechWave - Admin/Home</title>
             </Helmet>
-            <h2 className="text-6xl">i am admin</h2>
+            <div className="border-2 border-secondary flex flex-col justify-center">
+            <h2 className="font-bold text-center text-2xl my-4">Publication Article Distribution</h2>
+            <PieChart></PieChart>
+            <h2 className="font-bold text-center text-2xl my-4">Articles View counts</h2>
+            <LineChart></LineChart>
+            </div>
+
+          
             
         </div>
     );
