@@ -1,31 +1,41 @@
 import {
-  FaAd,
-  FaBook,
-  FaCalendar,
-  FaEnvelope,
+  
   FaHome,
-  FaList,
+ 
   FaSearch,
-  FaShoppingCart,
+ 
   FaUserPlus,
   FaUsers,
-  FaUtensils,
+ 
 } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
-import useAdmin from "../hooks/useAdmin";
+import { Link, NavLink, Outlet } from "react-router-dom";
+
 import { FaPaypal } from "react-icons/fa6";
 
+
+
 const Dashboard = () => {
-  const isAdmin = useAdmin();
+ 
+  
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row lg:flex-row">
       {/* dashboard side bar */}
-      <div className="w-64 min-h-screen bg-neutral-content">
+      <div className="w-full md:w-64 min-h-screen bg-neutral-content justify-center">
+      <Link to='/'>
+      <div className="flex  flex-col justify-center">
+        <div className="flex justify-center">
+        <img src="https://i.ibb.co/jk47LpJ/black-logo.png" className="w-20 h-20" alt="" />
+        </div>
+        <div className="text-center font-bold">
+          <h2>TECHWAVE</h2>
+        </div>
+      </div>
+      </Link>
         <ul className="menu p-4">
-          {isAdmin ? (
+          
             <>
               <li>
-                <NavLink to="/">
+                <NavLink to="/dashboard/adminHome">
                   <FaHome></FaHome>
                   Admin Home
                 </NavLink>
@@ -44,31 +54,23 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/allArticle">
+                <NavLink to="/dashboard/adminAllArticle">
                   <FaSearch></FaSearch>
                   All Articles
                 </NavLink>
               </li>
             </>
-          ) : (
+         
             <>
               {/* shared nav links */}
-              <div className="divider"></div>
-              <li>
-                <NavLink to="/">
-                  <FaHome></FaHome>
-                  Home
-                </NavLink>
-              </li>
               <li>
                 <NavLink to="/dashboard/payment">
                   <FaPaypal></FaPaypal>
                   Payment
                 </NavLink>
-              </li>
-             
+              </li>           
             </>
-          )}
+          
         </ul>
       </div>
       {/* dashboard content */}

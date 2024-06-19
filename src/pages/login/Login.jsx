@@ -35,7 +35,15 @@ export const Login = () => {
           popup: "animate__animated animate__fadeOutUp",
         },
       });
-      navigate(from, { replace: true });
+      const userInfo = {
+        email: result.user?.email,
+        name: result.user?.displayName,
+      };
+      axiosPublic.post("/users", userInfo).then((res) => {
+        console.log(res.data);
+        navigate(from, { replace: true });
+      });
+      
     });
   };
 
@@ -48,7 +56,7 @@ export const Login = () => {
       };
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);
-        navigate("/");
+        navigate(from, { replace: true });
       });
     });
   };

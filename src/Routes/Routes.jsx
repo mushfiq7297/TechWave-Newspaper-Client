@@ -17,6 +17,11 @@ import AdminRoute from "./AdminRoute";
 import ErrorPage from "../errorpage/ErrorPage";
 import Payment from "../pages/Dashboard/payment/Payment";
 
+import AdminHome from "../pages/Dashboard/adminHome/AdminHome";
+import AdminAllArticle from "../pages/Dashboard/adminAllArticle/AdminAllArticle";
+import PremiumArticles from "../pages/premiumArticles/PremiumArticles";
+
+
 
 
 
@@ -42,11 +47,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addArticles",
-        element: <AddArticles></AddArticles>,
+        element: <PrivateRoute><AddArticles></AddArticles></PrivateRoute>,
       },
       {
         path: "/subscription",
-        element: <Subscription></Subscription>,
+        element: <PrivateRoute><Subscription></Subscription></PrivateRoute>,
+      },
+      {
+        path: "/premiumArticles",
+        element: <PrivateRoute><PremiumArticles></PremiumArticles></PrivateRoute>,
       },
       {
         path: "/login",
@@ -75,22 +84,28 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       //normal user
+      
       {
         path: "payment",
         element:<Payment></Payment>
       },
       // admin user routes
       {
+        path:"adminHome",
+        element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
+      },
+      {
         path:'allUser',
         element:<AdminRoute><AllUser></AllUser></AdminRoute>
       },
       {
-        path:'allArticle',
-        element:<AllArticle></AllArticle>
-      },
-      {
         path:'addPublisher',
         element:<AdminRoute><AddPublisher></AddPublisher></AdminRoute>
+      },
+      {
+        path:'adminAllArticle',
+        element:<AdminRoute><AdminAllArticle></AdminAllArticle></AdminRoute>
+
       }
       
     ]

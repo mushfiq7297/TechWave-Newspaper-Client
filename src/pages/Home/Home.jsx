@@ -4,6 +4,7 @@ import Banner from "../banner/Banner";
 import Publishers from "../publishers/Publishers";
 import Statistics from "../statistics/Statistics";
 import Plans from "../plans/Plans";
+import Modal from "../../components/Modal";
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <Helmet>
                 <title>TechWave - Home</title>
             </Helmet>
+            <Modal></Modal>
             <Banner></Banner>
             <AllArticle></AllArticle>
             <Publishers></Publishers>

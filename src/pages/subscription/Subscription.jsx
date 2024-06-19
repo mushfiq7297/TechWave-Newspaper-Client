@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import {  useNavigate } from "react-router-dom";
+
 
 const Subscription = () => {
     const [user, setUser] = useState()
     const [period, setPeriod] = useState('1 minute');
     const [price, setPrice] = useState(2); // Initial price for 1 minute
     const navigate = useNavigate();
-  
+   
     const handlePeriodChange = (event) => {
       const selectedPeriod = event.target.value;
       setPeriod(selectedPeriod);
@@ -14,13 +16,13 @@ const Subscription = () => {
       let newPrice;
       switch (selectedPeriod) {
         case '1 minute':
-          newPrice = 2; // $2 per minute
+          newPrice = 2; 
           break;
         case '5 days':
-          newPrice = 20; // Arbitrary price for 5 days
+          newPrice = 20; 
           break;
         case '10 days':
-          newPrice = 35; // Arbitrary price for 10 days
+          newPrice = 35; 
           break;
         default:
           newPrice = 0;
@@ -30,7 +32,7 @@ const Subscription = () => {
     };
   
     const handleSubscribe = () => {
-      // Update the user's premium status
+      
       const currentTime = new Date();
       let premiumExpiry;
       switch (period) {
@@ -56,6 +58,9 @@ const Subscription = () => {
     
   return (
     <div>
+       <Helmet>
+                <title>TechWave - Subscription</title>
+            </Helmet>
       <div
         className="hero min-h-screen"
         style={{
@@ -67,10 +72,10 @@ const Subscription = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold uppercase space-y-2">
-              Subscribe to our news letter
+            Subscribe to Premium
             </h1>
             <p className="mb-5 text-2xl">
-              Be the first to get the exclusive offers and latest news
+            Enjoy exclusive features and content
             </p>
             <label className="flex justify-center">
               <h2 className="text-2xl text-center">Subscription Period:</h2>

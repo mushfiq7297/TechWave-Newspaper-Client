@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import { RiDashboardHorizontalLine, RiMenu5Fill } from "react-icons/ri";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   // update state on toggle
 
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -28,6 +30,9 @@ const Navbar = () => {
       <li className="text-white  hover:text-secondary">
         <Link to="subscription">SUBSCRIPTION</Link>
       </li>
+      <li className="text-white  hover:text-secondary">
+        <Link to="premiumArticles">PREMIUM ARTICLES</Link>
+      </li>
       {user?.email ? (
         <>
           <li className="text-white  hover:text-secondary">
@@ -37,6 +42,14 @@ const Navbar = () => {
       ) : (
         <div></div>
       )}
+      {user && isAdmin && (
+        <li>
+          <Link to="/dashboard/adminHome"><div className="tooltip tooltip-right " data-tip="Dashboard">
+                <RiDashboardHorizontalLine className="w-7 h-7 mb-1" />
+              </div></Link>
+        </li>
+      )}
+      
     </>
   );
   return (
@@ -72,26 +85,20 @@ const Navbar = () => {
         <div className="navbar-end mx-2">
           {user ? (
             <>
-             
-                <div className="tooltip tooltip-left" data-tip="Dashboard">
-                <Link to="/dashboard/allUser">
-                  <RiDashboardHorizontalLine className="w-10 h-10" />
-                  </Link>
-                </div>
               
+
               <div className="flex gap-2">
-                <div className="dropdown dropdown-bottom dropdown-end">
-                  <div tabIndex={0} role="button" className="m-1">
-                    
+               <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+               <div tabIndex={0} role="button" className="m-1">
                     <img
                       src={user?.photoURL || "/src/assets/userDefaultPic.png"}
                       alt=""
                       className=" rounded w-10 h-10 mt-1 mx-2 "
                     />
-                    
-                  </div>
                   
                 </div>
+               </div>
+                  
               </div>
               <button
                 onClick={handleLogOut}

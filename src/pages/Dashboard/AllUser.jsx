@@ -1,10 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import {  FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import Pagination from "../../components/Pagination";
+import { useState } from "react";
 
 const AllUser = () => {
   const axiosSecure = useAxiosSecure();
+  const [currentPage, setCurrentPage] = useState(1);
+  const usersPerPage = 5;
+
+  
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -13,7 +20,12 @@ const AllUser = () => {
     },
   });
 
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
+  const totalPages = Math.ceil(users.length / usersPerPage);
+  
   const handleMakeAdmin = user =>{
     axiosSecure.patch(`/users/admin/${user._id}`)
     .then(res =>{
@@ -32,6 +44,9 @@ const AllUser = () => {
 }
   return (
     <div>
+       <Helmet>
+                <title>TechWave - Admin/All-Users</title>
+            </Helmet>
       <div className="flex justify-evenly my-4">
         <h2 className="text-3xl">Total Users: {users.length}</h2>
       </div>
@@ -48,7 +63,7 @@ const AllUser = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {currentUsers.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
 
@@ -81,6 +96,11 @@ const AllUser = () => {
           </tbody>
         </table>
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };

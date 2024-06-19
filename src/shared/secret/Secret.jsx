@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import ArticleRow from "./ArticleRow";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 const Secret = () => {
   const { user } = useContext(AuthContext);
   const [articles, setArticles] = useState([]);
@@ -44,12 +45,18 @@ const Secret = () => {
   };
   return (
     <div>
+       <Helmet>
+                <title>TechWave - My Article</title>
+            </Helmet>
       <div>
         <div className="overflow-x-auto w-full min-h-screen">
           <table className="table w-full">
             {/* head */}
-            <tbody>
+            <tbody className="overflow-x-auto">
               <tr className="flex justify-between  text-base font-bold">
+                <td className="flex justify-center items-center  w-1/5 ">
+                Serial No
+                </td>
                 <td className="flex justify-center items-center  w-1/5 ">
                   Title
                 </td>
@@ -65,14 +72,18 @@ const Secret = () => {
                 <td className="flex justify-center items-center  w-1/5">
                   Status
                 </td>
+                <td className="flex justify-center items-center  w-1/5">
+                  isPremium
+                </td>
                 
               </tr>
             </tbody>
             <tbody>
-              {articles.map((article) => (
+              {articles.map((article,index) => (
                 <ArticleRow
                   key={article._id}
                   article={article}
+                  index= {index}
                  handleDelete={handleDelete}
                   //   handlearticleConfirm={handlearticleConfirm}
                 ></ArticleRow>

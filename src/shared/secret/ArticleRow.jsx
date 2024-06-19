@@ -2,11 +2,13 @@ import { GrDocumentUpdate } from "react-icons/gr";
 import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
-const ArticleRow = ({ article, handleDelete }) => {
-  const { _id, title } = article;
+const ArticleRow = ({ article, handleDelete,index }) => {
+  const { _id, title, status, declineReason,isPremium } = article;
+
   return (
     <div>
       <tr className="hover flex justify-between ">
+        <td className="flex justify-center items-center  w-1/5">{index+1}</td>
         <td className="flex justify-center items-center  w-1/5">{title}</td>
         <td className="flex justify-center items-center  w-1/5">
        <Link to={`/articleDetails/${_id}`}>
@@ -41,7 +43,27 @@ const ArticleRow = ({ article, handleDelete }) => {
             </svg>
           </button>
         </td>
-        <td className="flex justify-center items-center w-1/5">Status</td>
+        <td className="flex justify-center items-center w-1/5">{
+          status === "approved" &&
+            <span className="text-green-500">Approved</span>
+        }
+          { status === "declined" &&  
+
+              <>
+                
+                <button
+                  onClick={() => alert(`Reason: ${declineReason}`)}
+                  className={`btn btn-rose-200 rounded-none text-red-500`}
+                >
+                  Declined
+                </button>
+              </>
+}
+          {!status && <span className="text-blue-500">Pending</span>
+        }
+        
+        </td>
+        <td className="flex justify-center items-center w-1/5">{isPremium}</td>
       </tr>
     </div>
   );
