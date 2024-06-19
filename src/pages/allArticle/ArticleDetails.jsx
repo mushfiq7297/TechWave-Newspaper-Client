@@ -1,4 +1,5 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const ArticleDetails = () => {
   const news = useLoaderData();
@@ -14,6 +15,27 @@ const ArticleDetails = () => {
     long_description,
     tag,
   } = singleNews;
+
+  useEffect(() => {
+    // Increment the view count when the component mounts
+    const incrementViewCount = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/articles/${id}/view`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Failed to update view count');
+        }
+      } catch (error) {
+        console.error('Error updating view count:', error);
+      }
+    };
+
+    incrementViewCount();
+  }, [id]);
 
   return (
     <div>
@@ -32,7 +54,7 @@ const ArticleDetails = () => {
                 <span className="text-gray-500">/ {publisher} </span>
               </h2>
             </div>
-            <div className="badge badge-secondary badge-outline py-4 mb-6">
+            <div className="badge badge-secondary badge-outline font-bold py-4 mb-6">
               View : {viewcount}
             </div>
           </div>
