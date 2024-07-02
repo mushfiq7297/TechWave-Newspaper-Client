@@ -12,14 +12,8 @@
   <li>Admin Dashboard: Administrative panel for managing content, user accounts, and analytics.</li>
 </ul>
 <h3>Technology used:</h3>
-<ul>
-  <li>React: For building a dynamic and responsive user interface.</li>
-  <li>Firebase: For user authentication and real-time database.</li>
-  <li>React Router: For handling navigation and routing within the application.</li>
-  <li>Node.js & Express: For server-side logic and API development.</li>
-  <li>MongoDB: For storing user data, articles, and other related information.</li>
-  <li>Stripe: For payment gateway</li>
-</ul>
+ReactJS | TailwindCSS | ExpressJS | MongoDB | JWT | Stripe | Tanstack Query | Swiper
+
 <h3>Installation and Setup:</h3>
 <p>
   To clone and run this project locally, follow these steps:
