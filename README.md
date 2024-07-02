@@ -18,6 +18,7 @@
   <li>React Router: For handling navigation and routing within the application.</li>
   <li>Node.js & Express: For server-side logic and API development.</li>
   <li>MongoDB: For storing user data, articles, and other related information.</li>
+  <li>Stripe: For payment gateway</li>
 </ul>
 <h3>Installation and Setup:</h3>
 <p>
