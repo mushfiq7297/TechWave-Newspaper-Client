@@ -1,5 +1,5 @@
-<h2>Live Link: <a href="https://sunny-queijadas-e153d1.netlify.app/](https://techwave-newspaper.web.app/">TechWave Newspaper</a></h2>
-<h2>Server Side Code: <a href="https://sunny-queijadas-e153d1.netlify.app/](https://github.com/mushfiq7297/Restzy-Hotel-Booking-Server](https://github.com/mushfiq7297/TechWave-Newspaper-Server">Server</a></h2>
+<h2>Live Link: <a href="https://techwave-newspaper.web.app/">TechWave Newspaper</a></h2>
+<h2>Server Side Code: <a href="https://github.com/mushfiq7297/TechWave-Newspaper-Server">Server</a></h2>
 <h1>Project Overview:</h1>
 <p>This project aims to provide users with trending articles, premium features, and a seamless user experience. By leveraging modern web technologies, we intend to create an innovative platform that caters to diverse news consumption needs.</p>
 
