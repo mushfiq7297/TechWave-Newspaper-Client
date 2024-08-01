@@ -2,6 +2,8 @@
 <h2>Server Side Code: <a href="https://github.com/mushfiq7297/TechWave-Newspaper-Server">Server</a></h2>
 <h1>Project Overview:</h1>
 <p>This project aims to provide users with trending articles, premium features, and a seamless user experience. By leveraging modern web technologies, we intend to create an innovative platform that caters to diverse news consumption needs.</p>
+<h2>Admin email: remote@control.com</h2>
+<h2>Admin password: Pa$$w0rd!</h2>
 
 <h3>Features:</h3>
 <ul>
